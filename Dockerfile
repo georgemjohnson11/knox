@@ -2,7 +2,7 @@
 FROM maven:3.5-jdk-8 AS build
 COPY src /usr/src/knox/src
 COPY pom.xml /usr/src/knox
-RUN mvn -f /usr/src/knox/pom.xml clean package
+RUN mvn -f /usr/src/knox/pom.xml clean versions:use-latest-versions package
 
 # Base image containing Java runtime
 FROM openjdk:8-jdk-alpine
